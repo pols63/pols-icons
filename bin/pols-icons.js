@@ -1,22 +1,34 @@
 #!/usr/bin/env node
 
-const helper = require('../lib/helper.js');
+const ph = require('pols-helper');
 const fs = require('fs');
 
-/* Acción a aejecutar */
-if (typeof process.argv[2] === 'undefined') helper.showError("Debe especificar la tarea a realizar.", true);
-var action = process.argv[2].toLowerCase();
-if (['compile', 'create'].indexOf(action) === -1) helper.showError("Comando no reconocido: " + action, true);
+/* Acción a ejecutar */
+if (typeof process.argv[2] === 'undefined') ph.showError("Debe especificar la tarea a realizar.");
+var command = process.argv[2].toLowerCase();
 
-const tools = require('../lib/tools.js');
+/* Lista de comandos */
+let commands = [
+	['create', 'Crea el archivo config.json y l carpeta icon, en donde se deberán alojar los archivos de íconos SVG.'],
+	['compile', 'Compila los arhivos SVG a una fuente de íconos y actualiza el archivo config.json.'],
+];
 
-switch (action) {
+if (!ph.inCommands(command, commands)) {
+	ph.showError(`Comando ${command} no reconocido.`, false);
+	ph.showCommands(commands, 'Comandos permitidos');
+}
+
+const functions = require('../index.js');
+
+switch (command) {
 	case 'compile':
-		tools.polsIcons.compile();
+		var destination = process.argv[3];
+		if (destination && !fs.existsSync(destination)) ph.showError("No existe el directorio de destino '" + destination + "'");
+		functions.compile(destination);
 		break;
 	case 'create':
 		/* Nombre del componente / Ruta de Salida */
-		if (typeof process.argv[3] === 'undefined') helper.terminado('Debe especificarse el nombre de la fuente.');
-		tools.polsIcons.create(process.argv[3].toLowerCase());
+		if (typeof process.argv[3] === 'undefined') ph.terminado('Debe especificarse el nombre del componente.');
+		functions.create(process.argv[3].toLowerCase());
 		break;
 }
