@@ -1,0 +1,26 @@
+{
+  "name": "pols-tools",
+  "version": "1.0.0",
+  "description": "Creador y compilador de custom-elements para la web y fuentes de íconos.",
+  "main": "tools.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "pols-elements": "./bin/pols-elements.js",
+    "pols-icons": "./bin/pols-icons.js"
+  },
+  "preferGlobal": true,
+  "author": "Pols",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.3.2",
+    "icon.font": "^1.1.1",
+    "minify": "^4.1.1",
+    "sass": "^1.15.2"
+  },
+  "devDependencies": {}
+}
