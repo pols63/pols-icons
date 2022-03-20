@@ -1,6 +1,6 @@
 {
   "name": "pols-icons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Crear plantillas para compilar archivos SGV a IconFonts.",
   "main": "./bin/index.js",
   "scripts": {
