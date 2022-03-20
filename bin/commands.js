@@ -7,7 +7,7 @@ const commands = {
 		description: 'Crea el archivo "config.json" y la carpeta "icons" en el directorio actual. Requiere especifique el nombre de la fuente de íconos.',
 		do(fontName) {
 			if (!fontName) notifier({ title: `Debe especificar el nombre de la fuente a crear.`, error: true, exit: true })
-			if (!fontName.match(/^[a-z]+?[a-z0-9]$/)) notifier({ title: `Sólo permitido número y letras para el nombre de la fuente.`, error: true, exit: true })
+			if (!fontName.match(/^[a-z]+?[a-z0-9\-\_]*$/)) notifier({ title: `Sólo permitido números, letras y guiones para el nombre de la fuente.`, error: true, exit: true })
 
 			const pathDest = process.cwd()
 
