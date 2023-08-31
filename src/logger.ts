@@ -23,7 +23,7 @@ export type LogParams = {
 	logPath?: string
 }
 
-export const logger = ({ label, description, body, exit = false, theme = Themes.info, tags = [], showInConsole, logPath, date = null }: LogParams): string => {
+export const logger = ({ label, description, body, exit = false, theme = Themes.info, tags = [], showInConsole = true, logPath, date = null }: LogParams): string => {
 	/* Determina el color */
 	let bgColor: 'bg-red' | 'bg-yellow' | 'bg-green' | 'bg-cyan' = 'bg-cyan'
 	let fgColor: 'fg-white' | 'fg-black' = 'fg-black'
@@ -47,7 +47,7 @@ export const logger = ({ label, description, body, exit = false, theme = Themes.
 	if (showInConsole) {
 		const logMethod = theme == Themes.error ? 'error' : 'log'
 		const headers = [
-			Utilities.String.ansiColor(`<bg-black><fg-cyan>[${nowString}]</fg-cyan></bg-black>`),
+			// Utilities.String.ansiColor(`<bg-black><fg-cyan>[${nowString}]</fg-cyan></bg-black>`),
 			Utilities.String.ansiColor(`<${bgColor}><${fgColor}><bright> ${label} >>> </bright></${fgColor}></${bgColor}>`)
 		]
 		if (description) headers.push(Utilities.String.ansiColor(`<bg-white><fg-black> ${description} </fg-black></bg-white>`))

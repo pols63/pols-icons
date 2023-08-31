@@ -4,10 +4,13 @@
 	"description": "Crear plantillas para compilar archivos SGV a IconFonts.",
 	"main": "./bin/index.js",
 	"scripts": {
-		"test": "node ./bin/index.js"
+		"test": "npx ts-node-dev src/index.ts"
 	},
 	"bin": {
 		"pols-icons": "./bin/index.js"
+	},
+	"_moduleAliases": {
+		"@resources": "./resources"
 	},
 	"preferGlobal": true,
 	"author": "Jean Paul Sánchez Mendoza",
@@ -17,6 +20,7 @@
 	},
 	"devDependencies": {
 		"eslint": "^8.48.0",
+		"ts-node-dev": "^2.0.0",
 		"typescript": "^5.2.2"
 	}
 }

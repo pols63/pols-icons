@@ -1,5 +1,5 @@
 export default {
-	fontName: '@@fontName',
+	fontName: 'test',
 	codepointRanges: [
 		[97, 122], // a - z
 		[65, 90], // A - Z
