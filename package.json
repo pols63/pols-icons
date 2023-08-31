@@ -4,7 +4,8 @@
 	"description": "Crear plantillas para compilar archivos SGV a IconFonts.",
 	"main": "./bin/index.js",
 	"scripts": {
-		"test": "npx ts-node-dev src/index.ts"
+		"test": "npx ts-node-dev src/index.ts",
+		"build": "npx tsc --outDir bin"
 	},
 	"bin": {
 		"pols-icons": "./bin/index.js"

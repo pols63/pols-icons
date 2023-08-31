@@ -2,7 +2,6 @@
 	"compilerOptions": {
 		"outDir": "bin",
 		"target": "ESNext",
-		"moduleResolution": "NodeNext",
 		"baseUrl": ".",
 		"rootDir": ".",
 		"module": "CommonJS",
@@ -14,6 +13,10 @@
 		}
 	},
 	"exclude": [
-		"node_modules"
+		"node_modules",
+		"test"
+	],
+	"include": [
+		"src"
 	]
 }
