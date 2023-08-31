@@ -3,3 +3,5 @@ config.js
 map.json
 dist/
 icons/
+package-lock.json
+test
