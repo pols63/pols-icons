@@ -11,6 +11,9 @@ const docs: {
 }, {
 	command: 'create',
 	description: 'Crea un proyecto para una fuente de íconos en el mismo directorio donde se invoca el comando. Especifique como parámetro el nombre de la fuente.'
+}, {
+	command: 'compile',
+	description: 'Compila una fuente de íconos utilizando los recursos del directorio actual'
 }]
 
 export default () => {

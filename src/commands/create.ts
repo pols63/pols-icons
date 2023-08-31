@@ -11,10 +11,10 @@ const createIconsFolder = (iconsPath: string) => {
 
 export default (fontName: string) => {
 	if (!fontName) logger({ description: `Debe especificar el nombre de la fuente como parámetro de este comando`, theme: Themes.error, exit: true })
-	if (!fontName.match(/^[a-z]+?[a-z0-9\-\_]*$/i)) logger({ description: `Sólo permitido números, letras y guiones para el nombre de la fuente.`, theme: Themes.error, exit: true })
+	if (!fontName.match(/^[a-z]+?[a-z0-9\-\_]*$/i)) logger({ description: `Sólo permitido números, letras y guiones para el nombre de la fuente`, theme: Themes.error, exit: true })
 
-	// const pathDest = process.cwd()
-	const pathDest = path.join(__dirname, '../../test')
+	const pathDest = process.cwd()
+	// const pathDest = path.join(__dirname, '../../test')
 
 	/* Valida que no exista ya un archivo de configuración en la ruta deseada */
 	const configFilePath = path.join(pathDest, 'config.ts')

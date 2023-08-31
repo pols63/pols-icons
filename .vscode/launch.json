@@ -32,6 +32,20 @@
 				"create",
 				"test"
 			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Compile",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"runtimeExecutable": "npm",
+			"runtimeArgs": [
+				"run",
+				"test",
+				"compile"
+			]
 		}
 	]
 }
