@@ -1,18 +1,22 @@
 {
-  "name": "pols-icons",
-  "version": "1.0.1",
-  "description": "Crear plantillas para compilar archivos SGV a IconFonts.",
-  "main": "./bin/index.js",
-  "scripts": {
-    "test": "node ./bin/index.js"
-  },
-  "bin": {
-    "pols-icons": "./bin/index.js"
-  },
-  "preferGlobal": true,
-  "author": "Jean Paul Sánchez Mendoza",
-  "license": "MIT",
-  "dependencies": {
-    "icon.font": "^1.1.3"
-  }
+	"name": "pols-icons",
+	"version": "1.0.1",
+	"description": "Crear plantillas para compilar archivos SGV a IconFonts.",
+	"main": "./bin/index.js",
+	"scripts": {
+		"test": "node ./bin/index.js"
+	},
+	"bin": {
+		"pols-icons": "./bin/index.js"
+	},
+	"preferGlobal": true,
+	"author": "Jean Paul Sánchez Mendoza",
+	"license": "MIT",
+	"dependencies": {
+		"icon.font": "^1.1.3"
+	},
+	"devDependencies": {
+		"eslint": "^8.48.0",
+		"typescript": "^5.2.2"
+	}
 }
