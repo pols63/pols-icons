@@ -22,11 +22,13 @@ Con ello se habrán creado el archivo de configuración `config.js` y un subdire
 
 ## Distribución de la fuente
 
-Para crear los archivos de distribución de la fuente ejecute:
+Para crear los archivos de distribución de la fuente, ubique el promt en el directorio de trabajo y ejecute:
 
+```
 pols-icons compile
+```
 
-Con ellos se habrá creado un subdirectorio de nombre dist que contiene lo siguiente:
+Con ellos se habrá creado un subdirectorio de nombre `dist` que contiene los siguientes archivos:
 
 ```
 │   index.html
@@ -39,4 +41,6 @@ Con ellos se habrá creado un subdirectorio de nombre dist que contiene lo sigui
         my-font.woff2
 ```
 
-El archivo `index.html` es un instructivo de cómo utilizar la fuente. El subdirectorio `my-font` (para este ejemplo, ya que se mostrará con el nombre que usted haya especificado) tiene el contenido que podrá distribuir.
+El archivo `index.html` es un instructivo de cómo utilizar la fuente y un visualizador de la fuente creada.
+
+El subdirectorio `my-font` (en este ejemplo) tiene el contenido que podrá distribuir.
