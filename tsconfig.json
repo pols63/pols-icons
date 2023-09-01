@@ -3,8 +3,9 @@
 		"outDir": "bin",
 		"target": "ESNext",
 		"baseUrl": ".",
-		"rootDir": ".",
-		"module": "CommonJS",
+		"rootDir": "./src",
+		"moduleResolution": "NodeNext",
+		"module": "NodeNext",
 		"removeComments": true,
 		"paths": {
 			"@resources/*": [
@@ -15,8 +16,5 @@
 	"exclude": [
 		"node_modules",
 		"test"
-	],
-	"include": [
-		"src"
 	]
 }
