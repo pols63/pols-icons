@@ -20,7 +20,7 @@ export default () => {
 	logger({
 		label: 'HELP',
 		description: 'Ayuda de "pols-icons"',
-		body: `${generalDescription}\n\n${docs.map(doc => `${doc.command}: ${doc.description}`).join(`\n\n`)}`,
+		body: `${generalDescription}\n\n${docs.map(doc => `${doc.command}: ${doc.description}`).join(`\n\n`)}\n`,
 		exit: true
 	})
 }

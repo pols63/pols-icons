@@ -1,6 +1,7 @@
 import path = require('path')
 import fs = require('fs')
 import { LogParams, Themes, logger as originalLogger } from "../logger"
+import { workPath } from '../types'
 
 const logger = (params: Partial<LogParams>) => originalLogger({ ...params, label: 'CREATE' })
 
@@ -13,21 +14,21 @@ export default (fontName: string) => {
 	if (!fontName) logger({ description: `Debe especificar el nombre de la fuente como parámetro de este comando`, theme: Themes.error, exit: true })
 	if (!fontName.match(/^[a-z]+?[a-z0-9\-\_]*$/i)) logger({ description: `Sólo permitido números, letras y guiones para el nombre de la fuente`, theme: Themes.error, exit: true })
 
-	const pathDest = process.cwd()
-	// const pathDest = path.join(__dirname, '../../test')
-
 	/* Valida que no exista ya un archivo de configuración en la ruta deseada */
-	const configFilePath = path.join(pathDest, 'config.ts')
+	const configFilePath = path.join(workPath, 'config.ts')
 	if (!fs.existsSync(configFilePath)) {
 		/* Carga el template */
-		const templateConfig = fs.readFileSync(path.join(__dirname, '../../resources', 'config.template'), { encoding: 'utf-8' }).replace(/@@fontName/g, fontName)
+		const templateConfig =
+			fs.readFileSync(path.join(__dirname, '../../resources', 'config.template'), { encoding: 'utf-8' })
+				.replace(/@@fontNameLower/g, fontName.toLowerCase())
+				.replace(/@@fontName/g, fontName)
 		fs.writeFileSync(configFilePath, templateConfig, { encoding: 'utf8' })
 		logger({ description: `Archivo "config.ts" creado.`, theme: Themes.success })
 	} else {
 		logger({ description: `Ya existe el archivo "config.ts" en este directorio. Si quiere rehacerlo, elimine primero el archivo existente.`, theme: Themes.warning })
 	}
 
-	const iconsPath = path.resolve(pathDest, 'icons')
+	const iconsPath = path.resolve(workPath, 'icons')
 
 	if (!fs.existsSync(iconsPath)) {
 		createIconsFolder(iconsPath)
