@@ -6,12 +6,7 @@
 		"rootDir": "./src",
 		"moduleResolution": "NodeNext",
 		"module": "NodeNext",
-		"removeComments": true,
-		"paths": {
-			"@resources/*": [
-				"./resources"
-			]
-		}
+		"removeComments": true
 	},
 	"exclude": [
 		"node_modules",

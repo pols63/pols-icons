@@ -6,30 +6,32 @@ import { Config, workPath } from '../types'
 
 const logger = (params: Partial<LogParams>) => originalLogger({ ...params, label: 'CREATE' })
 
+const fileConfigName = 'pols-icons-config.json'
+
 const getConfig = (configFilePath: string): Config => {
 	try {
-		return require(configFilePath).default
+		return require(configFilePath)
 	} catch (err) {
-		logger({ description: `Ocurrió un error al intentar cargar el archivo "config.ts".`, body: err, theme: Themes.error, exit: true })
+		logger({ description: `Ocurrió un error al intentar cargar el archivo "${fileConfigName}"`, body: err, theme: Themes.error, exit: true })
 	}
 }
 
 export default () => {
 	/* Carga el archivo de configuración */
-	const configFilePath = path.join(workPath, 'config.ts');
-	if (!fs.existsSync(configFilePath)) logger({ description: `Se requiere el archivo "config.ts" en este directorio.`, theme: Themes.error, exit: true })
+	const configFilePath = path.join(workPath, fileConfigName);
+	if (!fs.existsSync(configFilePath)) logger({ description: `Se requiere el archivo "${fileConfigName}" en este directorio.`, theme: Themes.error, exit: true })
 	const config = getConfig(configFilePath)
 
 	/* Valida el nombre de la fuente */
-	if (!config?.fontName) logger({ description: `No se ha definido la propiedad "fontName" en el archivo de configuración. El archivo "config.ts" no es un archivo válido`, theme: Themes.error, exit: true })
+	if (!config?.fontName) logger({ description: `No se ha definido la propiedad "fontName" en el archivo de configuración. El archivo "${fileConfigName}" no es un archivo válido`, theme: Themes.error, exit: true })
 	const fontName = config.fontName
 	if (!fontName.match(/^[a-z]+?[a-z0-9\-\_]*$/i)) logger({ description: `Sólo permitido números, letras y guiones para el nombre de la fuente`, theme: Themes.error, exit: true })
 
 	/* Valida la estructura de la propiedad "codepointRanges" */
-	if (config.codepointRanges != null && !(config.codepointRanges instanceof Array)) logger({ description: `La propiedad "codepointRanges" en el archivo de configuraciòn debe ser un arreglo`, theme: Themes.error, exit: true })
-	for (const [i, range] of config.codepointRanges.entries()) {
-		if (!(range instanceof Array)) logger({ description: `El elemento "codepointRanges[${i}]" debe ser un arreglo en el archivo de configuración`, theme: Themes.error, exit: true })
-	}
+	// if (config.codepointRanges != null && !(config.codepointRanges instanceof Array)) logger({ description: `La propiedad "codepointRanges" en el archivo de configuraciòn debe ser un arreglo`, theme: Themes.error, exit: true })
+	// for (const [i, range] of config.codepointRanges.entries()) {
+	// 	if (!(range instanceof Array)) logger({ description: `El elemento "codepointRanges[${i}]" debe ser un arreglo en el archivo de configuración`, theme: Themes.error, exit: true })
+	// }
 
 	/* Valida la existencia de la carpeta de íconos. */
 	const iconstPath = path.join(workPath, 'icons');
@@ -76,10 +78,10 @@ export default () => {
 			pathNameLower: fontName.toLowerCase(),
 			// baseClassname: '_icon',
 		},
-		codepointRanges: config.codepointRanges ?? [
-			[97, 122], // a - z
-			[65, 90], // A - Z
-			[48, 57], // 0 - 9
+		codepointRanges: [
+			// [97, 122], // a - z
+			// [65, 90], // A - Z
+			// [48, 57], // 0 - 9
 			[0xe001, Infinity] //57345 - infinito
 		]
 	}).then(() => {

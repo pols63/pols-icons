@@ -14,7 +14,7 @@ exports.default = (fontName) => {
         logger({ description: `Debe especificar el nombre de la fuente como parámetro de este comando`, theme: logger_1.Themes.error, exit: true });
     if (!fontName.match(/^[a-z]+?[a-z0-9\-\_]*$/i))
         logger({ description: `Sólo permitido números, letras y guiones para el nombre de la fuente`, theme: logger_1.Themes.error, exit: true });
-    const configFilePath = path.join(types_1.workPath, 'config.ts');
+    const configFilePath = path.join(types_1.workPath, 'pols-icons-config.json');
     if (!fs.existsSync(configFilePath)) {
         const templateConfig = fs.readFileSync(path.join(__dirname, '../../resources', 'config.template'), { encoding: 'utf-8' })
             .replace(/@@fontNameLower/g, fontName.toLowerCase())

@@ -1,11 +1,5 @@
-export default {
-	fontName: '@@fontName',
-	iconClassPrefix: 'i-',
-	baseClass: '@@fontNameLower-font',
-	codepointRanges: [
-		// [97, 122], // a - z
-		// [65, 90], // A - Z
-		// [48, 57], // 0 - 9
-		[0xe001, Infinity] //57345 - infinito
-	]
+{
+	"fontName": "@@fontName",
+	"iconClassPrefix": "i-",
+	"baseClass": "@@fontNameLower-font"
 }

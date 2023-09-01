@@ -10,9 +10,6 @@
 	"bin": {
 		"pols-icons": "./bin/index.js"
 	},
-	"_moduleAliases": {
-		"@resources": "./resources"
-	},
 	"preferGlobal": true,
 	"author": "Jean Paul Sánchez Mendoza",
 	"license": "MIT",

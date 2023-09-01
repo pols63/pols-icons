@@ -1,6 +1,8 @@
-# pols-icons
+# Pols Icons
 
-Herramienta CLI para crear fuentes de íconos. Basado en el paquete icon.font, pols-icon entrega una carpeta con la fuente lista para distribuir.
+Herramienta CLI para crear fuentes de íconos. **Pols Icons** entrega una carpeta con la fuente lista para distribuir.
+
+Basado en el paquete `icon.font`.
 
 ## Instalación
 
@@ -8,7 +10,7 @@ Herramienta CLI para crear fuentes de íconos. Basado en el paquete icon.font, p
 npm install -g pols-icons
 ```
 
-## Uso
+## Crear un nuevo proyecto
 
 Ubique el promt en su directorio de trabajo. De preferencia escoja un directorio vacío. Luego de ello ejecute:
 

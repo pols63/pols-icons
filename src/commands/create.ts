@@ -15,7 +15,7 @@ export default (fontName: string) => {
 	if (!fontName.match(/^[a-z]+?[a-z0-9\-\_]*$/i)) logger({ description: `Sólo permitido números, letras y guiones para el nombre de la fuente`, theme: Themes.error, exit: true })
 
 	/* Valida que no exista ya un archivo de configuración en la ruta deseada */
-	const configFilePath = path.join(workPath, 'config.ts')
+	const configFilePath = path.join(workPath, 'pols-icons-config.json')
 	if (!fs.existsSync(configFilePath)) {
 		/* Carga el template */
 		const templateConfig =
